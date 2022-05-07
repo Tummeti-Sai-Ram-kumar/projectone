@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Store Asset Management</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&family=Mulish&family=Poppins&family=Russo+One&display=swap" rel="stylesheet">
+   
+
+  
+    <link rel="stylesheet" href="..\CSS Files\fonts.css">
+    <link rel="stylesheet" href="..\CSS Files\index.css">
+    <link rel="stylesheet" href="..\CSS Files\asset.css">
+    
+
+    <link rel ="icon" href="https://assets.tridentindia.com/favicon_32x32_1b05f460d9.png">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --> 
+
+    
+
+
+</head>
+<body> 
+    <!-- Menu Button for Aside Bar -->
+<div class="menu-bar">
+    <input type="checkbox" id="menu-bar-input" name="">
+    <label for="menu-bar-input" id="menu-bar-label"></label>   
+
+    <!-- Aside Bar -->
+    <aside class="aside-bar" id="aside-bar">
+        <div class="aside-bar-logo" id="aside-bar-logo">
+            <div>
+                <p class="aside-bar-title">Trident Group</p>
+                <p class="aside-bar-sub-title">IT - Infra</p>
+            </div>
+        </div>
+
+        <i class="fa-solid fa-angle-left" id="aside-resize-btn"></i>
+        
+        <div class="all-tabs" id="all-tabs">
+            
+            <div class="single-tab-home single-tab">
+                <i class="fa-solid fa-house"></i>
+                <p class="single-tab-name">Home</p>
+            </div>
+            <div class="single-tab-dashboard single-tab">
+                <i class="fa-solid fa-table-columns"></i>
+                <p class="single-tab-name">DashBoard</p>
+            </div>
+            <div class="single-tab-services single-tab">
+                <i class="fa-solid fa-memory"></i>
+                <p class="single-tab-name">Services</p>
+            </div>
+            <div class="single-tab-assets single-tab">
+                <i class="fa-solid fa-tablet"></i>
+                <p class="single-tab-name">Assets</p>
+            </div>
+            <div class="single-tab-locations single-tab">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="single-tab-name">Locations</p>
+            </div>
+            <div class="single-tab-notifications single-tab">
+                <i class="fa-solid fa-bell"></i>
+                <p class="single-tab-name">Notifications</p>
+            </div>
+            <div class="settings single-tab">
+                <i class="fa-solid fa-gear"></i>
+                <p class="single-tab-name">Settings</p>
+            </div>
+            <div class="dark-mode single-tab" id="dark-mode">
+                <i class="fa-solid fa-moon" id="sun-moon"></i>
+                <p id="sun-moon-mode" class="single-tab-name">Dark</p>
+            </div>
+            <div class="collapse single-tab" id="shrink">
+                <i class="fa-solid fa-circle-arrow-left" id="collapse-expand"></i>
+                <p class="single-tab-name">Collapse</p>
+            </div>
+        </div>
+
+   </aside>
+</div>    
+
+<header class="nav-bar">
+
+    <div class="nav-bar-logo">
+        <div>
+            <p class="nav-bar-title">Trident Group</p>
+            <p class="nav-bar-sub-title">IT - Infra</p>
+        </div>
+    </div>
+
+
+    <nav class="nav-bar-contents"> 
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li id="services">
+                <a href="">Services</a>
+                <ul>
+                    <li><a href="">Create Asset</a></li>
+                    <li><a href="">Update Asset</a></li>
+                    <li><a href="">Delete Asset</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="assets.html">Assets</a></li>
+            <li><a href="">Dashboard</a></li>
+        </ul>     
+    </nav>
+    <!--  <div class="nav-bar-trident-logo">
+        <a href=""><img src="https://assets.tridentindia.com/logo_de10b8cfcb.svg" alt="Trident India"></a>
+        </div>
+    -->     
+</header>
+
+    
+    <div class="AssetInformation">
+        <p id="AssetType"></p>
+
+        <div class="AssetCountInfo">
+            <div class="AssetCountInt">
+                <div id="Working" class="counters">
+                    <p>WR</p>
+                    <p id="counter0" class="counter"></p>
+                </div>
+                <div id="NotWorking" class="counters">
+                    <p>NWNR</p>
+                    <p id="counter1" class="counter"></p>
+                </div>
+                <div id="NotWorkingRepairable" class="counters">
+                    <p>NWR</p>
+                    <p id="counter2" class="counter"></p>
+                </div>
+            </div>
+            <div class="AssetCountChart" id="columnchart_values">
+                <canvas id="AssetDistributionChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <div class="table-wrapper">
+        <table class="Asset-details">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Make Model</th>
+                    <th>Serial Number</th>
+                    <th>Working Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Hp</td>
+                    <td>ABCDEFG</td>
+                    <td>Working</td>
+                    <td>
+                        <div class="actions">
+                            <i class="fa-solid fa-square-check"></i>
+                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Hp</td>
+                    <td>ABCDEFG</td>
+                    <td>Working</td>
+                    <td>
+                        <div class="actions">
+                            <i class="fa-solid fa-square-check"></i>
+                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Hp</td>
+                    <td>ABCDEFG</td>
+                    <td>Working</td>
+                    <td>
+                        <div class="actions">
+                            <i class="fa-solid fa-square-check"></i>
+                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Hp</td>
+                    <td>ABCDEFG</td>
+                    <td>Working</td>
+                    <td>
+                        <div class="actions">
+                            <i class="fa-solid fa-square-check"></i>
+                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="..\JS Files\asset.js"></script>
+    <script src="..\JS Files\index.js"></script>
+</body>
+</html>

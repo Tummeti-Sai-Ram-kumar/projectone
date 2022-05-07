@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&family=Mulish&family=Poppins&family=Russo+One&display=swap'); 
+
+
+.search-table-assets{
+    display : grid;
+    grid-template-columns : 1fr 3fr;
+    width : 80%;
+    position: relative;
+    margin : 0px auto;
+    border : 1px solid grey;
+    height : 50px;
+    
+}
+.search-table-assets div{
+    display : flex;
+    justify-content: center;
+    align-items : center;
+}
+.search-table-assets #table-search-bar{
+    position : relative;
+    font-family : poppins,cursive;
+    font-size : 14px;
+    outline : none;
+    border : 1px solid grey;
+    padding : 5px 45px;
+    height : 25px;
+    border-radius : 15px;
+    font-weight : bold;
+    background: var(--primary-color);
+    color : var(--secondary-color);
+}
+.search-table-assets #table-search-btn{
+    position : absolute;
+    left : 3%;
+    left : 15px;
+    background : none;
+    outline :  none;
+    border : none;
+    color :  var(--secondary-color);
+}
+.search-table-assets .table-operations{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.ManipTable{
+    font-family : Poppins,cursive;
+    background: none;
+    font-size : 14px;
+    height : 40px;
+    padding-left : 25px;
+    padding-right : 25px;
+    outline : none;
+    border : 0.5px solid grey;
+    color : var(--secondary-color);
+    border-radius : 15px;
+    font-weight : bold;
+    cursor : pointer;
+}
+.ManipTable i{
+    padding-left : 10px;
+}
+
+
+
+
+
+.table-wrapper{
+    max-height : 500px;
+    width : 80%;
+    margin : 0px auto;
+    overflow: hidden;
+    overflow-y :  scroll;
+    border : 1px solid grey;
+    border-radius : 0px;
+}
+.table-wrapper::-webkit-scrollbar{
+    display : none;
+}
+
+table{
+    width : 100%;
+    height : 100%;
+    border-collapse : collapse;
+}
+tbody td{
+    text-align :  center;
+}
+table thead{
+    font-family: "Lexend Deca";
+    font-size : 18px;
+    position : sticky;
+    position : -webkit-sticky;
+    top : 0px;
+    background: #6d6c6c;
+    background : none;
+    background : #b6b6b6;
+    background: var(--primary-color);
+    color : var(--secondary-color);
+    
+    box-shadow : 1px 1px 10px var(--secondary-color);
+}
+table thead tr{
+    height : 50px;
+}
+table tbody tr{
+    height :  40px;
+}
+thead th:nth-child(4){
+    background: rgba(77, 202, 115, 0.6);
+}
+thead th:nth-child(5){
+    background: rgba(255, 99, 132, 0.6);
+    
+}
+thead th:nth-child(6){
+    background: rgba(255, 206, 86, 0.6);
+   
+}
+
+tbody tr td:nth-child(4){
+    background : rgba(77, 202, 115, 0.2);
+}
+tbody tr td:nth-child(5){
+    background: rgba(255, 99, 132, 0.2);
+}
+tbody tr td:nth-child(6){
+    background: rgba(255, 206, 86, 0.2);
+}
+tbody tr:hover{
+    background : #777777bf;
+    transition: 0.35s all;
+    opacity: 0.65;
+    font-weight : bold;
+}
+tbody tr td:hover{
+    border : 2px solid;
+    opacity : 1;
+}
+@media screen and (max-width : 1025px){
+    .search-table-assets .table-operations{
+        display : none;
+    }
+    
+    .search-table-assets .search-things{
+        display : flex;
+        flex-direction : row;
+        justify-content: center;
+    }
+
+}
+@media screen and (max-width:600px){
+    
+    .table-wrapper table thead{
+        display : none;
+    }
+    .table-wrpper table tbody{
+        display : flex;
+        flex-direction : column;
+    }
+    .table-wrapper table tbody tr td:first-child{
+        display : none;
+    }
+    .table-wrapper table tbody tr{
+        display : grid;
+        grid-template-columns : 1fr 1fr 1fr;
+        height : 180px;
+        border-bottom : 2px solid;
+    }
+    .table-wrapper table tbody tr td{
+        height : 60px;
+        font-size: 12px;
+    }
+    .table-wrapper table tbody tr td:nth-child(2){
+        background: none;
+        grid-column :  span 3;
+        height : 50px;
+        font-size : 16px;
+        font-weight : bold;
+        background: linear-gradient(to bottom right , rgba(77, 202, 115, 0.6),rgba(255, 99, 132, 0.6),rgba(255, 206, 86, 0.6));
+     /*   background: var(--primary-color);
+        box-shadow: 1px 1px 10px var(--secondary-color); */
+        background: grey;
+    }
+    .table-wrapper table tbody tr td:nth-child(3){
+        grid-column : span 3;
+        
+    }
+    .table-wrapper table tbody tr td:nth-child(3)::before{
+        content : "Locations : ";
+        
+    }
+    .table-wrapper table tbody tr td:nth-child(4)::before{
+        content : "WR : ";
+    }
+    .table-wrapper table tbody tr td:nth-child(5)::before{
+        content : "NWNR : ";
+    }
+    .table-wrapper table tbody tr td:nth-child(6)::before{
+        content : "NWR : ";
+    }
+    .table-wrapper table tbody tr td{
+        display : flex;
+        justify-content: center;
+        align-items: center;
+    } 
+    tbody tr:hover{
+        background : none;
+        transition: 0s all;
+        opacity: 1;
+        font-weight :normal;
+    }
+    tbody tr td:hover{
+        border : none;
+        opacity : 1;
+    }
+    .search-table-assets #table-search-bar{
+        
+        height : 20px;
+        font-size : 10px;
+    }
+    
+}
+
+
+
+
+/* Pop Up windows */
+.container-box{
+    z-index : 4;
+    position: absolute;
+    top : -40%;
+    left : 30%;
+    left : -1000px;
+    top : 0px;
+    width : 500px ;
+    margin : 0px auto;
+    height : 300px;
+    box-shadow: 1px 1px 40px grey;
+    transform : scale(0.1);
+    background: var(--primary-color);
+    border-radius : 10px;
+}
+.container-box-open{
+    left : 30%;
+    transform : scale(1);
+    transition : 1s all;
+}   
+
+
+
+.container-box .container-title{
+    font-family : Mulish;
+    font-size : 20px;
+    font-weight : bold;
+    margin-top : -10px;
+}
+.container-box .container-title::after{
+    content : "";
+    width : 50px;
+    border-bottom : 1.5px solid var(--secondary-color);
+    margin : 1px auto;
+    display: block;
+}
+
+.container-box label{
+    font-size : 16px;
+    font-weight : bold;
+    font-family: "Lexend Deca";
+    display : inline;
+}
+
+.container-box div{
+    display : flex;
+    flex-direction : column;
+    width : 95%;
+    margin: 0px auto;
+}
+
+
+.container-box div input{
+    width : 100px;
+    background : transparent;
+    outline : none;
+    border : none;
+    border-bottom : 1px solid var(--secondary-color);
+    color : var(--secondary-color);
+    font-family : poppins;
+    margin-left : 10px;
+    font-weight : bold;
+    text-align: center;
+}
+.container-box div div{
+    margin-bottom : 15px;
+    display : flex;
+    flex-direction : row;
+    justify-content: flex-start;
+}
+.counts{
+    margin-top : 5px;
+    border-radius : 10px;
+    padding : 5px 10px;
+    text-align: center; 
+    height : 40px;
+}
+#Add-wr-count,#Update-wr-count{
+    background :rgba(77, 202, 115, 0.6);
+    border-bottom : none;
+    box-shadow : 2px 2px 10px grey;
+}
+#Add-nwr-count,#Update-nwr-count{
+    background : rgba(255, 206, 86, 0.6);
+    border-bottom : none;
+    box-shadow : 2px 2px 10px grey;
+}
+#Add-nwnr-count,#Update-nwnr-count{
+    background: rgba(255, 99, 132, 0.6);
+    border-bottom : none;
+    box-shadow : 2px 2px 10px grey;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.submit-cancel-buttons{
+    margin-top : 20px;
+    
+}
+
+.submit-cancel-buttons .submit-button{
+    padding : 5px 20px;
+    border-radius : 15px;
+    font-family : Mulish;
+    font-size : 16px;
+    border : none;
+    background: whitesmoke;
+    box-shadow: 1px 1px 10px grey;
+    cursor  :pointer;
+    margin-right : 15px;
+    margin-top : 20px;
+}
+
+

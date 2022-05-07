@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-Rack 8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0">
+    <title>IT Store Asset Management</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&family=Mulish&family=Poppins&family=Russo+One&display=swap" rel="stylesheet">
+   
+
+
+    <link rel ="icon" href="https://assets.tridentindia.com/favicon_32x32_1b05f460d9.png">
+    <link rel="stylesheet" href="..\CSS Files\index.css">
+    <link rel="stylesheet" href="..\CSS Files\assets.css">
+    <link rel="stylesheet" href="..\CSS Files\fonts.css">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+</head>
+<body>
+<!-- Menu Button for Aside Bar -->
+<div class="menu-bar">
+    <input type="checkbox" id="menu-bar-input" name="">
+    <label for="menu-bar-input" id="menu-bar-label"></label>   
+
+    <!-- Aside Bar -->
+    <aside class="aside-bar" id="aside-bar">
+        <div class="aside-bar-logo" id="aside-bar-logo">
+            <div>
+                <p class="aside-bar-title">Trident Group</p>
+                <p class="aside-bar-sub-title">IT - Infra</p>
+            </div>
+        </div>
+
+        <i class="fa-solid fa-angle-left" id="aside-resize-btn"></i>
+        
+        <div class="all-tabs" id="all-tabs">
+            
+            <div class="single-tab-home single-tab">
+                <i class="fa-solid fa-house"></i>
+                <p class="single-tab-name">Home</p>
+            </div>
+            <div class="single-tab-dashboard single-tab">
+                <i class="fa-solid fa-table-columns"></i>
+                <p class="single-tab-name">DashBoard</p>
+            </div>
+            <div class="single-tab-services single-tab">
+                <i class="fa-solid fa-memory"></i>
+                <p class="single-tab-name">Services</p>
+            </div>
+            <div class="single-tab-assets single-tab">
+                <i class="fa-solid fa-tablet"></i>
+                <p class="single-tab-name">Assets</p>
+            </div>
+            <div class="single-tab-locations single-tab">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="single-tab-name">Locations</p>
+            </div>
+            <div class="single-tab-notifications single-tab">
+                <i class="fa-solid fa-bell"></i>
+                <p class="single-tab-name">Notifications</p>
+            </div>
+            <div class="settings single-tab">
+                <i class="fa-solid fa-gear"></i>
+                <p class="single-tab-name">Settings</p>
+            </div>
+            <div class="dark-mode single-tab" id="dark-mode">
+                <i class="fa-solid fa-moon" id="sun-moon"></i>
+                <p id="sun-moon-mode" class="single-tab-name">Dark</p>
+            </div>
+            <div class="collapse single-tab" id="shrink">
+                <i class="fa-solid fa-circle-arrow-left" id="collapse-expand"></i>
+                <p class="single-tab-name">Collapse</p>
+            </div>
+        </div>
+
+   </aside>
+</div>    
+
+<header class="nav-bar">
+
+    <div class="nav-bar-logo">
+        <div>
+            <p class="nav-bar-title">Trident Group</p>
+            <p class="nav-bar-sub-title">IT - Infra</p>
+        </div>
+    </div>
+
+
+    <nav class="nav-bar-contents"> 
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li id="services">
+                <a href="">Services</a>
+                <ul>
+                    <li><a href="">Create Asset</a></li>
+                    <li><a href="">Update Asset</a></li>
+                    <li><a href="">Delete Asset</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="assets.html">Assets</a></li>
+            <li><a href="">Dashboard</a></li>
+        </ul>     
+    </nav>
+    <!--  <div class="nav-bar-trident-logo">
+        <a href=""><img src="https://assets.tridentindia.com/logo_de10b8cfcb.svg" alt="Trident India"></a>
+        </div>
+    -->     
+</header>
+
+
+<div style="height:100px;"> 
+    
+</div>
+
+<div class="search-table-assets">
+        <div class="search-things">
+            <input type="text" id="table-search-bar" placeholder="Search for Assets or locations..." onkeyup="SearchTable()">
+            <!--  <button id="table-search-clear" onclick="ClearTableSearchBar()"><i class="fa-solid fa-xmark"></i></button>   -->
+            <button id="table-search-btn"><i class="fa fa-search"></i></button>
+        </div>
+    
+    <div class="table-operations">
+
+
+        <div class="container">
+            <button id="AddAsset" class="ManipTable" onclick="AddAsset()">Add Asset <i class="fa-solid fa-plus"></i> </button> 
+            <div class="container-box" id="AddAssetIntoTable">
+                <div>
+                    <p class="container-title">Add Asset</p>
+                
+                    <div>
+                        <label for="AssetType">Asset Type : </label>
+                        <input type="text" id="AddAssetType">
+                    </div>
+
+                    <div>
+                        <label for="AssetLocation">Enter Asset Location : </label>
+                        <input type="text" id="AddAssetLocation">
+                    </div>
+
+                    <div>
+                        <label for="AssetStatus">Enter Count : </label>
+                        
+                            <input type="number" id="Add-wr-count" class="counts">
+                            <input type="number" id="Add-nwnr-count" class="counts">
+                            <input type="number" id="Add-nwr-count" class="counts">
+                        
+                    </div>
+
+                    <div class="submit-cancel-buttons">
+                        <button id="Submit1" class="submit-button" onclick="Insert()" type="submit">Insert</button>
+                        <button id="Cancel1" class="submit-button" onclick="Cancel1()" type="submit">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <button id="DeleteAsset" class="ManipTable" onclick="DeleteAsset()">Delete Asset  <i class="fa-solid fa-minus"></i> </button>
+        </div>
+        <div class="container">
+            <button id="UpdateAsset" class="ManipTable" onclick="UpdateAsset()">Update Asset <i class="fa-solid fa-retweet"></i> </button> 
+            <div class="container-box" id="UpdateAssetFromTable">
+                <div>
+                    <p class="container-title">Update Asset</p>
+                
+                    <div>
+                        <label for="AssetType">Asset Type : </label>
+                        <input type="text" id="UpdateAssetType">
+                    </div>
+
+                    <div>
+                        <label for="AssetLocation">Change Asset Location : </label>
+                        <input type="text" id="UpdateAssetLocation">
+                    </div>
+
+                    <div>
+                        <label id="AssetStatus">Edit Count :</label>
+                        
+                            <input type="number" id="Update-wr-count" class="counts">
+                            <input type="number" id="Update-nwnr-count" class="counts">
+                            <input type="number" id="Update-nwr-count" class="counts">
+                        
+                    </div>
+
+                    <div class="submit-cancel-buttons">
+                        <button id="Submit2" class="submit-button" onclick="Update()" type="submit">Update</button>
+                        <button id="Cancel2" class="submit-button" onclick="Cancel2()" type="submit">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <button id="Alert" class="ManipTable" onclick="">Alerts <i class="fa-solid fa-bell"></i> </button> 
+            
+        </div>
+        <div class="container">
+            <button id="ConvertToExcel" class="ManipTable" onclick="ConvertToExcel()">Make Excel File<i class="fa-solid fa-file-arrow-down"></i> </button>
+        </div>
+    </div>
+</div>
+
+<div class="table-wrapper">
+    <table class="assets" id="table">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Asset Type</th>
+                <th>Locations</th>
+                <th>WR</th>
+                <th>NWNR</th>
+                <th>NWR</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+            <tr>
+                <td>1</td>
+                <td>Monitors</td>
+                <td>Store</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+    
+            <tr>
+                <td>2</td>
+                <td>CCTV</td>
+                <td>Store</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Cables</td>
+                <td>1.3</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>IP Phones</td>
+                <td>2.3</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Ipads</td>
+                <td>Almirah</td>
+                <td>50</td>
+                <td>0</td>
+                <td>6</td>
+            </tr>
+    
+            <tr>
+                <td>6</td>
+                <td>HardDisks</td>
+                <td>Almirah</td>
+                <td>40</td>
+                <td>2</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>CPU</td>
+                <td>3.3 , 4.4</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Keyboards</td>
+                <td>1.6</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Mouse</td>
+                <td>Store</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+    
+            <tr>
+                <td>10</td>
+                <td>Laptops</td>
+                <td>Almirah</td>
+                <td>0</td>
+                <td>0</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Cables</td>
+                <td>1.4</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>IP Phones</td>
+                <td>Store</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Monitors</td>
+                <td>Store</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+    
+            <tr>
+                <td>14</td>
+                <td>CCTV</td>
+                <td>Store</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Cables</td>
+                <td>1.3</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>IP Phones</td>
+                <td>2.3</td>
+                <td>10</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+
+
+    <script src="..\JS Files\assets.js"></script>
+    <script src="..\JS Files\index.js"></script>
+</body>
+</html>
+
